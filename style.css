@@ -1,0 +1,53 @@
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+header {
+    font-size: 1.5rem;
+}
+
+#start {
+    margin-top: 1rem;
+    width: 10rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.hide {
+    display: none;
+}
+
+#scores {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    font-size: 1.5rem;
+}
+
+#timer {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+}
