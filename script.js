@@ -23,25 +23,29 @@ var questionsArr = [
 
 ];
 
+var currentQuestion = 0;
+
 function startQuiz() {
     startScrnEl.setAttribute('class', 'hide');
 
     questionsEl.removeAttribute('class', 'hide');
 
-    getQuestions();
+    getQuestion();
 
     startTime();
 }
 
-function getQuestions() {
-    for (var i=0; i<questionsArr.length; i++) {
-        document.getElementById('question').innerHTML = questionsArr[i].title;
-        document.getElementById('choice-one-text').innerHTML = questionsArr[i].choices[0];
-        document.getElementById('choice-two-text').innerHTML = questionsArr[i].choices[1];
-        document.getElementById('choice-three-text').innerHTML = questionsArr[i].choices[2];
-        document.getElementById('choice-four-text').innerHTML = questionsArr[i].choices[3];
-    }
-    submitBtnEl.addEventListener('click', i++)
+function getQuestion() {
+    document.getElementById('question').innerHTML = questionsArr[currentQuestion].title;
+    document.getElementById('choice-one-text').innerHTML = questionsArr[currentQuestion].choices[0];
+    document.getElementById('choice-two-text').innerHTML = questionsArr[currentQuestion].choices[1];
+    document.getElementById('choice-three-text').innerHTML = questionsArr[currentQuestion].choices[2];
+    document.getElementById('choice-four-text').innerHTML = questionsArr[currentQuestion].choices[3];
+}
+
+function nextQuestion() {
+    currentQuestion = currentQuestion + 1;
+    getQuestion();
 }
 
 function startTime() {
@@ -59,4 +63,5 @@ function startTime() {
     };
 }
 
+submitBtnEl.addEventListener('click', nextQuestion);
 startBtnEl.addEventListener('click', startQuiz);
