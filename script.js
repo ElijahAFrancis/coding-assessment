@@ -34,13 +34,14 @@ function startQuiz() {
 }
 
 function getQuestions() {
-    for (i=0; i<questionsArr.length; i++) {
+    for (var i=0; i<questionsArr.length; i++) {
         document.getElementById('question').innerHTML = questionsArr[i].title;
         document.getElementById('choice-one-text').innerHTML = questionsArr[i].choices[0];
         document.getElementById('choice-two-text').innerHTML = questionsArr[i].choices[1];
         document.getElementById('choice-three-text').innerHTML = questionsArr[i].choices[2];
         document.getElementById('choice-four-text').innerHTML = questionsArr[i].choices[3];
     }
+    submitBtnEl.addEventListener('click', i++)
 }
 
 function startTime() {
