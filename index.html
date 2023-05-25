@@ -10,7 +10,7 @@
 <body>
     <div id="scores">
         <p>Scores</p>
-        <ol id="scoreList"></ol>
+        <ul id="score-list"></ul>
     </div>
 
     <div id="timer">Time: <span id="time">0</span></div>
@@ -45,7 +45,11 @@
             </ul>
             <button id="submit">Submit</button>
         </div>
-        <div id="end-screen" class="hide">Done!</div>
+        <div id="end-screen" class="hide">
+            <div>Score: <span id="score"></span></div>
+            <input type="text" id="initials" placeholder="initials" maxlength="3">
+            <button type="submit" id="save-score">Save Score</button>
+        </div>
     </main>
 
     <script src="script.js"></script>
