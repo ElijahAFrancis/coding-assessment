@@ -3,9 +3,9 @@ var startBtnEl = document.getElementById('start');
 var submitBtnEl = document.getElementById('submit');
 var startScrnEl = document.getElementById('start-screen')
 var questionsEl = document.getElementById('questions');
+var endScrnEl = document.getElementById('end-screen');
 var timer;
 var timeLeft = 0;
-// var selected = document.querySelector('input[name="choice"]:checked').value;
 
 var questionsArr = [
     {
@@ -41,11 +41,15 @@ function startQuiz() {
 }
 
 function getQuestion() {
-    document.getElementById('question').innerHTML = questionsArr[currentQuestion].title;
-    document.getElementById('choice-one-text').innerHTML = questionsArr[currentQuestion].choices[0];
-    document.getElementById('choice-two-text').innerHTML = questionsArr[currentQuestion].choices[1];
-    document.getElementById('choice-three-text').innerHTML = questionsArr[currentQuestion].choices[2];
-    document.getElementById('choice-four-text').innerHTML = questionsArr[currentQuestion].choices[3];
+    if (currentQuestion < questionsArr.length) {
+        document.getElementById('question').innerHTML = questionsArr[currentQuestion].title;
+        document.getElementById('choice-one-text').innerHTML = questionsArr[currentQuestion].choices[0];
+        document.getElementById('choice-two-text').innerHTML = questionsArr[currentQuestion].choices[1];
+        document.getElementById('choice-three-text').innerHTML = questionsArr[currentQuestion].choices[2];
+        document.getElementById('choice-four-text').innerHTML = questionsArr[currentQuestion].choices[3];
+    } else {
+        endQuiz()
+    }
 }
 
 function nextQuestion() {
@@ -72,6 +76,13 @@ function countdown() {
         timeEl.innerHTML = 0;
         clearInterval(timer);
     };
+}
+
+function endQuiz() {
+    timeLeft = 0
+    questionsEl.setAttribute('class', 'hide');
+    endScrnEl.removeAttribute('class', 'hide');
+    countdown();
 }
 
 submitBtnEl.addEventListener('click', nextQuestion);
