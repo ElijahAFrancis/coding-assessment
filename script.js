@@ -3,22 +3,23 @@ var startBtnEl = document.getElementById('start');
 var submitBtnEl = document.getElementById('submit');
 var startScrnEl = document.getElementById('start-screen')
 var questionsEl = document.getElementById('questions');
+// var selected = document.querySelector('input[name="choice"]:checked').value;
 
 var questionsArr = [
     {
         title: "This is a Test",
         choices: ['This', 'is', 'a', 'test'],
-        answer: 'this',
+        answer: '1',
     },
     {
         title: "This is 2 Test",
         choices: ['This', 'is', '2', 'test'],
-        answer: '2',
+        answer: '3',
     },
     {
         title: "This is 3 Test",
         choices: ['This', 'is', '3', 'test'],
-        answer: '3',
+        answer: '2',
     },
 
 ];
@@ -44,8 +45,17 @@ function getQuestion() {
 }
 
 function nextQuestion() {
+    var selected = document.querySelector('input[name="choice"]:checked').value;
+    console.log(selected);
+    if (selected == questionsArr[currentQuestion].answer) {
     currentQuestion = currentQuestion + 1;
     getQuestion();
+    } else {
+        startScrnEl.setAttribute('class', 'start-screen');
+        questionsEl.setAttribute('class', 'hide');
+
+        clearInterval(timer);
+    }
 }
 
 function startTime() {
