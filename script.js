@@ -3,6 +3,8 @@ var startBtnEl = document.getElementById('start');
 var submitBtnEl = document.getElementById('submit');
 var startScrnEl = document.getElementById('start-screen')
 var questionsEl = document.getElementById('questions');
+var timer;
+var timeLeft = 0;
 // var selected = document.querySelector('input[name="choice"]:checked').value;
 
 var questionsArr = [
@@ -33,7 +35,9 @@ function startQuiz() {
 
     getQuestion();
 
-    startTime();
+    timeLeft = 60;
+    timeEl.innerHTML = 60;
+    timer = setInterval(countdown, 1000);
 }
 
 function getQuestion() {
@@ -51,25 +55,22 @@ function nextQuestion() {
     currentQuestion = currentQuestion + 1;
     getQuestion();
     } else {
-        startScrnEl.setAttribute('class', 'start-screen');
-        questionsEl.setAttribute('class', 'hide');
+        currentQuestion = currentQuestion + 1;
 
-        clearInterval(timer);
+        timeLeft-=10;
+        getQuestion();
+        countdown();
     }
 }
 
-function startTime() {
-    var timeLeft = 50;
-    timeEl.innerHTML = 50;
-    var timer = setInterval(countdown, 1000);
-    function countdown() {
-        timeLeft -= 1;
-        if (timeLeft > 0) {
-            timeEl.innerHTML = timeLeft;
-        } else {
-            timeEl.innerHTML = 0;
-            clearInterval(timer);
-        };
+function countdown() {
+    console.log(timeLeft);
+    timeLeft -= 1;
+    if (timeLeft > 0) {
+        timeEl.innerHTML = timeLeft;
+    } else {
+        timeEl.innerHTML = 0;
+        clearInterval(timer);
     };
 }
 
