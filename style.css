@@ -4,17 +4,25 @@ padding: 0;
 margin: 0;
 }
 
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+:root {
+    --primary: #39ace7;
+    --secondary: #0784b5;
+    --light-grey: #414c50;
+    --grey: #2d383c;
+    --dark-grey: #192428;
 }
 
-/* @media screen and (min-width: 800px){   */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--grey);
+}
 
 .start-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 7rem;
+    color: var(--primary);
 }
 
 header {
@@ -31,12 +39,14 @@ header {
 
 #question {
     font-size: 3rem;
+    color: var(--primary);
 }
 
 #choices {
     margin-top: 2rem;
     list-style-type: none;
     font-size: 2rem;
+    color: var(--secondary);
 }
 
 #submit {
@@ -76,6 +86,7 @@ main {
 
 #final-score {
     font-size: 2rem;
+    color: var(--primary);
 }
 
 #initials {
@@ -85,7 +96,10 @@ main {
     border-radius: 1rem;
     border-style: solid;
     border-width: .2rem;
-    border-color: black;
+    border-color: var(--dark-grey);
+    background-color: var(--light-grey);
+    color: var(--primary);
+    
 }
 
 #save-score {
@@ -95,6 +109,19 @@ main {
     border-style: solid;
     border-width: .2rem;
     width: 12rem;
+}
+
+button {
+    border-color: var(--dark-grey);
+    background-color: var(--light-grey);
+    color: var(--primary);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--dark-grey);
+    border-color: var(--light-grey);
+    color: var(--secondary);
 }
 
 .hide {
@@ -117,8 +144,10 @@ main {
     margin-left: 1.5rem;
     text-align: center;
     border-radius: 1rem;
-    border-color: black;
+    border-color: var(--dark-grey);
     border-style: solid;
+    background-color: var(--light-grey);
+    color: var(--primary);
 }
 
 #score-list {
@@ -129,7 +158,9 @@ main {
     width: 10rem;
     padding: .5rem;
     border-style: solid;
-    border-color: black;
+    border-color: var(--dark-grey);
+    background-color: var(--light-grey);
+    color: var(--primary);
 }
 
 #scores:hover #score-list {
@@ -144,7 +175,10 @@ main {
     font-size: 1.5rem;
     border-radius: 1rem;
     border-style: solid;
+    border-color: var(--dark-grey);
     padding: .5rem;
+    background-color: var(--light-grey);
+    color: var(--primary);
 }
 
 @media screen and (max-width: 800px) {
@@ -156,5 +190,8 @@ main {
     }
     #choices {
         font-size: 1rem;
+    }
+    #initials {
+        width: 15rem;
     }
 }
