@@ -95,7 +95,7 @@ function startQuiz() {
 
     startScrnEl.setAttribute('class', 'hide');
 
-    questionsEl.removeAttribute('class', 'hide');
+    questionsEl.setAttribute('class', 'questions');
 
     score = 0;
 
@@ -149,7 +149,7 @@ function endQuiz() {
     timeLeft = 0
     scoreEl.innerHTML = score + "/10";
     questionsEl.setAttribute('class', 'hide');
-    endScrnEl.removeAttribute('class', 'hide');
+    endScrnEl.setAttribute('class', 'end-screen');
     saveScoreBtn.addEventListener('click', updateScores);
     countdown;
 }
